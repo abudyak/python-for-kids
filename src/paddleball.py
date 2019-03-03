@@ -19,7 +19,7 @@ class Ball:
         self.canvas_width = self.canvas.winfo_width()
 
     def hit_paddle(self, pos):
-        paddle_pos = self.canvas.coords(self, paddle.id)
+        paddle_pos = self.canvas.coords(self.paddle.id)
         if pos[2] >= paddle_pos[0] and pos[0] <= paddle_pos[2]:
             if pos[3] >= paddle_pos[1] and pos[3] <= paddle_pos[3]:
                 return True
@@ -60,10 +60,10 @@ class Paddle:
             self.x = 0
 
     def turn_left(self, evt):
-        self.x = -2
+        self.x = -3
 
     def turn_right(self, evt):
-        self.x = 2
+        self.x = 3
 
 
 tk = Tk()
@@ -83,4 +83,4 @@ while 1:
     paddle.draw()
     tk.update_idletasks()
     tk.update()
-    # time.sleep(0.01)
+    time.sleep(0.005)
